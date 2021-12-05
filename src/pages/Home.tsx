@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from "../services/api"
+import SimpleTable from "../components/SimpleTable"
 
 export default function Home() {
 
@@ -23,7 +24,7 @@ export default function Home() {
     return (
         <>
             <h2>Dashboard</h2>
-       
+            <SimpleTable />
             {
               patients.map(item => (
                   <div>                    

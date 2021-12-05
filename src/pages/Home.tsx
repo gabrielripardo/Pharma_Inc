@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from "../services/api"
-<<<<<<< Updated upstream
-=======
 import SimpleTable from "../components/SimpleTable"
->>>>>>> Stashed changes
 
 export default function Home() {
 
@@ -27,11 +24,7 @@ export default function Home() {
     return (
         <>
             <h2>Dashboard</h2>
-<<<<<<< Updated upstream
-       
-=======
             <SimpleTable />
->>>>>>> Stashed changes
             {
               patients.map(item => (
                   <div>                    

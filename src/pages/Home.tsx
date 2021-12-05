@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from "../services/api"
 import SimpleTable from "../components/SimpleTable"
+import { Container } from '@mui/material';
 
 export default function Home() {
 
@@ -22,7 +23,7 @@ export default function Home() {
     }, []);
 
     return (
-        <>
+        <Container>
             <h2>Dashboard</h2>
             <SimpleTable />
             {
@@ -33,6 +34,6 @@ export default function Home() {
                 )
               )
             }
-        </>
+        </Container>
     )
 }

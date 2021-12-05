@@ -1,10 +1,10 @@
 import Home from "./pages/Home";
+import Header from "./pages/Header";
 
 function App() {
   return (
-    <>
-      <h1>It's working</h1>
-
+    <>      
+      <Header/>
       <Home/>
     </>
   );

@@ -3,6 +3,7 @@ import api from "../services/api"
 import SimpleTable from "../components/SimpleTable"
 import { Container } from '@mui/material';
 
+
 export default function Home() {
 
     const [patients, setPatients] = useState<any[]>([]);
@@ -15,7 +16,7 @@ export default function Home() {
                   console.log("Type of: "+typeof(response.data.results))
                   const data = response.data.results
 
-                  setPatients(data)
+                  setPatients(data) 
                 })
             .catch((err) => {
                 console.error("ops! ocorreu um erro" + err);
@@ -33,7 +34,7 @@ export default function Home() {
                   </div>
                 )
               )
-            }
+            }            
         </Container>
     )
 }

@@ -17,7 +17,7 @@ const Patients = () => {
             <h1>Patients</h1>
             <ul>
                 {patients.map((post: any) => (
-                    <li>{`${post.name.title} ${post.name.first} ${post.name.last}`}</li>
+                    <li>{`${post.name.title} ${post.name.first} ${post.name.last} - ${post.gender} - ${post.registered.age}`}</li>
                 ))}
             </ul>
         </div>

@@ -1,5 +1,6 @@
-import {useState} from 'react'
-import {useSelector, RootStateOrAny} from 'react-redux'
+import {useState, useEffect} from 'react'
+import {useDispatch, useSelector, RootStateOrAny} from 'react-redux'
+import { loadposts } from "../store/posts";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -22,25 +23,23 @@ function createData(
 
 
 export default function SimpleTable() {
-  const contador = useSelector((state: RootStateOrAny) => state.cont);
-  const resp = useSelector((state: RootStateOrAny) => state.reqResp);
+  const dispatch = useDispatch();
+  const patients = useSelector((state: RootStateOrAny) => state.list);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);  
 
-  const rows = [
-    createData('Frozen yoghurt', 159, 6, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
+  useEffect(() => {
+      dispatch(loadposts());
+  }, [dispatch]);
+
+  // ${post.name.title} ${post.name.first} ${post.name.last} - ${post.gender} - ${post.registered.age}
+
+
     
   return (
-    <TableContainer component={Paper}>
-      {contador}
-      <br/>
-      {resp}
+    <TableContainer component={Paper}>    
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -51,14 +50,13 @@ export default function SimpleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
+          {patients.map((row: any) => (
+            <TableRow              key={row.login.uuid}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">{row.name}</TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
+              <TableCell component="th" scope="row">{`${row.name.title} ${row.name.first} ${row.name.last}`}</TableCell>
+              <TableCell align="right">{row.gender}</TableCell>
+              <TableCell align="right">{row.registered.age}</TableCell>
               <TableCell align="right">    
                 <DetailsModal open={open} handleClose={handleClose}/>          
                 <Button variant="contained" size="small" onClick={handleOpen}>

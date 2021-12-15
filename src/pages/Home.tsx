@@ -9,8 +9,7 @@ export default function Home() {
     return (
       <Container>
         <h2>Dashboard</h2>
-        <SimpleTable />            
-        <Patients/>       
+        <SimpleTable />                          
       </Container>  
     )
 }

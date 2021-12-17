@@ -1,6 +1,4 @@
-import {useState, useEffect} from 'react'
-import {useDispatch, useSelector, RootStateOrAny} from 'react-redux'
-import { loadposts } from "../store/posts";
+import {useState} from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,35 +9,13 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import DetailsModal from '../components/DetailsModal';
 
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
-) {
-  return { name, calories, fat, carbs, protein };
-}
-
-
-export default function SimpleTable() {
-  const dispatch = useDispatch();
-  const patients = useSelector((state: RootStateOrAny) => state.list);
-
+export default function SimpleTable(props: any) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);  
 
-  useEffect(() => {
-      dispatch(loadposts());
-  }, [dispatch]);
-
-  // ${post.name.title} ${post.name.first} ${post.name.last} - ${post.gender} - ${post.registered.age}
-
-
-    
   return (
-    <TableContainer component={Paper}>    
+    <TableContainer component={Paper}>          
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -50,8 +26,8 @@ export default function SimpleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {patients.map((row: any) => (
-            <TableRow              key={row.login.uuid}
+          {props.rows.map((row: any) => (
+            <TableRow key={row.login.uuid}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">{`${row.name.title} ${row.name.first} ${row.name.last}`}</TableCell>

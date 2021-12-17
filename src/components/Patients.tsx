@@ -1,5 +1,5 @@
 import {useDispatch, useSelector, RootStateOrAny} from 'react-redux'
-import { loadposts } from "../store/posts";
+import { loadpatients } from "../store/patients";
 import { useEffect } from "react";
 
 const Patients = () => {
@@ -7,7 +7,7 @@ const Patients = () => {
     const patients = useSelector((state: RootStateOrAny) => state.list);
 
     useEffect(() => {
-        dispatch(loadposts());
+        dispatch(loadpatients());
     }, [dispatch]);
 
     console.log(patients)

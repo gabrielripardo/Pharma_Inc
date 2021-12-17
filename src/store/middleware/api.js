@@ -21,13 +21,14 @@ const api =
                 method,
                 data,
             });
+         
             // General
             dispatch(actions.apiCallSucess(response.data.results));
             console.log(`##`)
             console.log(response.data.results)
             // Specific
             if (onSuccess)
-                dispatch({ type: onSuccess, payload: response.data.results });
+                dispatch({ type: onSuccess, payload: [...data, ...response.data.results] });
         } catch (error) {
             // General
             dispatch(actions.apiCallFailed(error.message));

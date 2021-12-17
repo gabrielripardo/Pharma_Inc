@@ -16,7 +16,7 @@ const slice = createSlice({
         patientsReceived: (patients, action) => {
             console.log("## patients ")
             console.log(patients)
-            patients.list = action.payload;
+            patients.list = action.payload
             patients.loading = false;
         },
 
@@ -32,10 +32,11 @@ const { patientsRequested, patientsReceived, patientsRequestFailed } = slice.act
 
 // const url = `/?page=1&results=10`;
 
-export const loadpatients = (page) => (dispatch) => {
+export const loadpatients = (page, data) => (dispatch) => {
     return dispatch(
         apiCallBegan({
             url: `/?page=${page}&results=10`,
+            data,
             onStart: patientsRequested.type,
             onSuccess: patientsReceived.type,
             onError: patientsRequestFailed.type,

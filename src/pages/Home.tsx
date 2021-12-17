@@ -22,7 +22,7 @@ export default function Home() {
   }
   
   useEffect(() => {
-      dispatch(loadpatients(page));
+      dispatch(loadpatients(page, patients));
   }, [dispatch, page]);
 
 

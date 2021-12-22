@@ -18,7 +18,7 @@ const style = {
 };
 
 export default function DetailsModal(props: any) {
-  
+  console.log(props.data)
 
   return (
     <div>      
@@ -39,7 +39,10 @@ export default function DetailsModal(props: any) {
               Detalhes do paciente
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+              {props.data.gender}
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              {/* {props.data.id.name} */}
+              <img src={props.data.picture.medium}></img>
             </Typography>
           </Box>
         </Fade>

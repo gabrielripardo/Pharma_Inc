@@ -6,14 +6,9 @@ const slice = createSlice({
     initialState: {
         list: [],
         loading: false,
-        patient: []
     },
 
     reducers: {
-        patientDetails: (state, action) => {
-            state.patient = action.payload
-        },
-
         patientsRequested: (patients, action) => {
             patients.loading = true;
         },
@@ -48,7 +43,3 @@ export const loadpatients = (page, data) => (dispatch) => {
         })
     );
 };
-
-export const loadDetails = (data) => (dispatch) => {
-    return dispatch({ patientDetails, payload: data });  
-}

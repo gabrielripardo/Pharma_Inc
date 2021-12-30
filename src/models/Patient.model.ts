@@ -15,5 +15,8 @@ export default interface Patient {
         city: String,
         street: {name: String, number: String} 
     };    
+    login: {
+        uuid: String,
+    }
 }
 

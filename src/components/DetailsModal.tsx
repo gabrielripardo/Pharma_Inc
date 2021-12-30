@@ -49,8 +49,8 @@ export default function DetailsModal(props: any) {
               <p>Telefone: <span>{data.phone}</span> </p>
               <p>Nacionalidade: <span>{data.location.country}</span> </p>
               <p>Endereço: <span>{`${data.location.state} - ${data.location.city} - ${data.location.street.name} - ${data.location.street.number}`}</span> </p>
-              <p>ID (Número de identificação): <span>{data.id.value}</span></p>
-              <p>URL para compartilhamento: </p>
+              <p>ID (Número de identificação): <span>{data.login.uuid}</span></p>
+              <p>URL para compartilhamento: <a href={`http://baseurl/uuid=${data.login.uuid}`}> http://baseurl/uid={data.login.uid}</a> </p>
             </Typography>
           </Box>
         </Fade>

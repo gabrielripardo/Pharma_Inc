@@ -5,6 +5,7 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Patient from '../models/Patient.model'
+import {Link} from 'react-router-dom'
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -22,6 +23,7 @@ export default function DetailsModal(props: any) {
   const {data, open, handleClose} = props
   console.log(data)
 
+  const baseUrl = window.location.protocol + window.location.host + '/'; 
   return (
     <div>      
       <Modal
@@ -50,7 +52,7 @@ export default function DetailsModal(props: any) {
               <p>Nacionalidade: <span>{data.location.country}</span> </p>
               <p>Endereço: <span>{`${data.location.state} - ${data.location.city} - ${data.location.street.name} - ${data.location.street.number}`}</span> </p>
               <p>ID (Número de identificação): <span>{data.login.uuid}</span></p>
-              <p>URL para compartilhamento: <a href={`http://baseurl/uuid=${data.login.uuid}`}> http://baseurl/uid={data.login.uid}</a> </p>
+              <p>URL para compartilhamento: <Link to={`details/${data.login.uuid}`}>{`${baseUrl}details/${data.login.uuid}`}</Link> </p>
             </Typography>
           </Box>
         </Fade>

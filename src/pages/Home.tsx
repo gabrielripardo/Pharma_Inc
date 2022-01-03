@@ -30,10 +30,10 @@ export default function Home() {
     setPage(1)
     setNationality(event.target.value)
     console.log('# nationality '+nationality)
-    dispatch(loadpatients(page, [], event.target.value));
+    dispatch(loadpatients(page, [], gender, event.target.value));
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const changeGender = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGender(event.target.value);
     console.log(event.target.value)    
     dispatch(loadpatients(page, [], event.target.value, nationality));
@@ -47,7 +47,7 @@ export default function Home() {
   
   useEffect(() => {
       dispatch(loadpatients(page, patients, gender, nationality));
-  }, [dispatch, page, nationality]);
+  }, [dispatch, page]);
 
 
   return (
@@ -64,10 +64,24 @@ export default function Home() {
         >
           <MenuItem value="">
             <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          </MenuItem>          
+          <MenuItem value="AU">Australia</MenuItem>
+          <MenuItem value="BR">Brazil</MenuItem>
+          <MenuItem value="CA">Canada</MenuItem>
+          <MenuItem value="CH">China</MenuItem>
+          <MenuItem value="DE">Germany</MenuItem>
+          <MenuItem value="DK">Denmark</MenuItem>
+          <MenuItem value="ES">Spain</MenuItem>
+          <MenuItem value="FI">Finland</MenuItem>
+          <MenuItem value="FR">France</MenuItem>
+          <MenuItem value="GB">United Kingdom</MenuItem>
+          <MenuItem value="IE">Ireland</MenuItem>
+          <MenuItem value="IR">Iran</MenuItem>
+          <MenuItem value="NO">Norway</MenuItem>
+          <MenuItem value="NL">Netherlands</MenuItem>
+          <MenuItem value="NZ">New Zealand</MenuItem>
+          <MenuItem value="TR">Turkey</MenuItem>
+          <MenuItem value="US">United States</MenuItem>
         </Select>
       </FormControl>
       <FormControl component="fieldset" sx={{ my: 2 }}>
@@ -79,7 +93,7 @@ export default function Home() {
             control={
               <Radio
                 checked={gender === 'female'}
-                onChange={handleChange}
+                onChange={changeGender}
                 value="female"
                 name="radio-buttons"
                 inputProps={{ 'aria-label': 'female' }}
@@ -92,7 +106,7 @@ export default function Home() {
             control={ 
               <Radio
                 checked={gender === 'male'}
-                onChange={handleChange}
+                onChange={changeGender}
                 value="male"
                 name="radio-buttons"
                 inputProps={{ 'aria-label': 'male' }}

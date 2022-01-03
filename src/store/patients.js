@@ -32,10 +32,10 @@ const { patientsRequested, patientsReceived, patientsRequestFailed, patientDetai
 
 // const url = `/?page=1&results=10`;
 
-export const loadpatients = (page, data) => (dispatch) => {
+export const loadpatients = (page, data, keyword) => (dispatch) => {
     return dispatch(
         apiCallBegan({
-            url: `/?page=${page}&results=10`,
+            url: `/?page=${page}&results=10&gender=${keyword}&nat=${keyword}`,
             data,
             onStart: patientsRequested.type,
             onSuccess: patientsReceived.type,

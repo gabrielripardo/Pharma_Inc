@@ -68,7 +68,7 @@ export default function Home() {
           <MenuItem value="AU">Australia</MenuItem>
           <MenuItem value="BR">Brazil</MenuItem>
           <MenuItem value="CA">Canada</MenuItem>
-          <MenuItem value="CH">China</MenuItem>
+          <MenuItem value="CH">Switzerland</MenuItem>
           <MenuItem value="DE">Germany</MenuItem>
           <MenuItem value="DK">Denmark</MenuItem>
           <MenuItem value="ES">Spain</MenuItem>

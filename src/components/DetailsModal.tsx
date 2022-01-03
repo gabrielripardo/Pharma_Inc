@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Patient from '../models/Patient.model'
 import {Link} from 'react-router-dom'
+import { makeStyles } from '@material-ui/styles'
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -19,11 +20,28 @@ const style = {
   p: 4,
 };
 
+const useStyles = makeStyles({
+  root: {
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  image: {    
+    width: 100, 
+    margin: 20,
+    borderRadius: 100,
+    border: 'solid #eee 5px',
+
+  },
+});
+
 export default function DetailsModal(props: any) {
   const {data, open, handleClose} = props
   console.log(data)
-
+  const classes = useStyles(props);
   const baseUrl = window.location.protocol + window.location.host + '/'; 
+  
   return (
     <div>      
       <Modal
@@ -38,12 +56,14 @@ export default function DetailsModal(props: any) {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              Detalhes do paciente
-            </Typography>
-            <Typography id="transition-modal-description" component={'span'} sx={{ mt: 2 }}>              
-              <img src={data.picture.medium}></img>
+          <Box sx={style}>            
+            <Typography id="transition-modal-description" component={'span'} sx={{ mt: 2 }}>        
+              <Box component="div" className={classes.root}>
+                <Typography id="transition-modal-title" variant="h6" component="h2">
+                  Detalhes do paciente
+                </Typography>
+                <img className={classes.image} src={data.picture.medium}></img>
+              </Box>                    
               <p>Nome: <span>{`${data.name.title} ${data.name.first} ${data.name.last}`}</span></p>                           
               <p>Email: <span>{data.email}</span> </p>
               <p>Gênero: <span>{data.gender}</span></p>

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { apiCallBegan } from "./api";
+import { apiCallBegan, detailsPatient } from "./actions";
 
 const slice = createSlice({
     name: "patients",
@@ -28,7 +28,7 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-const { patientsRequested, patientsReceived, patientsRequestFailed } = slice.actions;
+const { patientsRequested, patientsReceived, patientsRequestFailed, patientDetails } = slice.actions;
 
 // const url = `/?page=1&results=10`;
 

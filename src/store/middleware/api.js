@@ -1,10 +1,10 @@
 import axios from "axios";
-import * as actions from "../api";
+import * as actions from "../actions";
 
 const api =
     ({ dispatch }) =>
     (next) =>
-    async (action) => {
+    async (action) => {              
         if (action.type !== actions.apiCallBegan.type) return next(action);
 
         const { url, method, data, onStart, onSuccess, onError } =

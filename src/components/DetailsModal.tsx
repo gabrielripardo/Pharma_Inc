@@ -60,19 +60,19 @@ export default function DetailsModal(props: any) {
             <Typography id="transition-modal-description" component={'span'} sx={{ mt: 2 }}>        
               <Box component="div" className={classes.root}>
                 <Typography id="transition-modal-title" variant="h6" component="h2">
-                  Detalhes do paciente
+                  Patient Details
                 </Typography>
                 <img className={classes.image} src={data.picture.medium}></img>
               </Box>                    
-              <p>Nome: <span>{`${data.name.title} ${data.name.first} ${data.name.last}`}</span></p>                           
+              <p>Name: <span>{`${data.name.title} ${data.name.first} ${data.name.last}`}</span></p>                           
               <p>Email: <span>{data.email}</span> </p>
-              <p>Gênero: <span>{data.gender}</span></p>
-              <p>Data de nascimento: <span>{data.dob.date}</span></p>
-              <p>Telefone: <span>{data.phone}</span> </p>
-              <p>Nacionalidade: <span>{data.location.country}</span> </p>
-              <p>Endereço: <span>{`${data.location.state} - ${data.location.city} - ${data.location.street.name} - ${data.location.street.number}`}</span> </p>
-              <p>ID (Número de identificação): <span>{data.login.uuid}</span></p>
-              <p>URL para compartilhamento: <Link to={`details/${data.login.uuid}`}>{`${baseUrl}details/${data.login.uuid}`}</Link> </p>
+              <p>Gender: <span>{data.gender}</span></p>
+              <p>Birth date: <span>{data.dob.date}</span></p>
+              <p>Tellphone: <span>{data.phone}</span> </p>
+              <p>Nationality: <span>{data.location.country}</span> </p>
+              <p>Address: <span>{`${data.location.state} - ${data.location.city} - ${data.location.street.name} - ${data.location.street.number}`}</span> </p>
+              <p>ID: <span>{data.login.uuid}</span></p>
+              <p>Share URL: <Link to={`details/${data.login.uuid}`}>{`${baseUrl}details/${data.login.uuid}`}</Link> </p>
             </Typography>
           </Box>
         </Fade>

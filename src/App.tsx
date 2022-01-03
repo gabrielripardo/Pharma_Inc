@@ -13,6 +13,7 @@ function App() {
   return (
     <Router>    
       <Provider store={store}>      
+        <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>          
           <Route path="/details/:id" element={<Details/>}/>          

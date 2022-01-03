@@ -64,15 +64,15 @@ export default function DetailsModal(props: any) {
                 </Typography>
                 <img className={classes.image} src={data.picture.medium}></img>
               </Box>                    
-              <p>Name: <span>{`${data.name.title} ${data.name.first} ${data.name.last}`}</span></p>                           
-              <p>Email: <span>{data.email}</span> </p>
-              <p>Gender: <span>{data.gender}</span></p>
-              <p>Birth date: <span>{data.dob.date}</span></p>
-              <p>Tellphone: <span>{data.phone}</span> </p>
-              <p>Nationality: <span>{data.location.country}</span> </p>
-              <p>Address: <span>{`${data.location.state} - ${data.location.city} - ${data.location.street.name} - ${data.location.street.number}`}</span> </p>
-              <p>ID: <span>{data.login.uuid}</span></p>
-              <p>Share URL: <Link to={`details/${data.login.uuid}`}>{`${baseUrl}details/${data.login.uuid}`}</Link> </p>
+              <p><strong>Name: </strong><span>{`${data.name.title} ${data.name.first} ${data.name.last}`}</span></p>                           
+              <p><strong>Email: </strong><span>{data.email}</span> </p>
+              <p><strong>Gender: </strong><span>{data.gender}</span></p>
+              <p><strong>Birth date: </strong><span>{data.dob.date}</span></p>
+              <p><strong>Tellphone:</strong> <span>{data.phone}</span> </p>
+              <p><strong>Nationality: </strong><span>{data.location.country}</span> </p>
+              <p><strong>Address: </strong><span>{`${data.location.state} - ${data.location.city} - ${data.location.street.name} - ${data.location.street.number}`}</span> </p>
+              <p><strong>ID: </strong><span>{data.login.uuid}</span></p>
+              <p><strong>Share URL: </strong><Link to={`details/${data.login.uuid}`}>{`${baseUrl}details/${data.login.uuid}`}</Link> </p>
             </Typography>
           </Box>
         </Fade>

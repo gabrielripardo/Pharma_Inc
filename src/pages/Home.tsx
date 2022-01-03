@@ -12,29 +12,32 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 export default function Home() {    
   const dispatch = useDispatch();
   const patients = useSelector((state: RootStateOrAny) => state.list);
   const loading = useSelector((state: RootStateOrAny) => state.loading);
-  // const [loading, setLoading] = useState(false);
+  
   const [page, setPage] = useState(1);
   const [nationality, setNationality] = useState('');
-  const [gender, setGender] = useState('');
+  const [gender, setGender] = useState('');  
+
+  const changeNationality = (event: SelectChangeEvent) => {
+    console.log('# value '+event.target.value)
+    setPage(1)
+    setNationality(event.target.value)
+    console.log('# nationality '+nationality)
+    dispatch(loadpatients(page, [], event.target.value));
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGender(event.target.value);
     console.log(event.target.value)    
     dispatch(loadpatients(page, [], event.target.value, nationality));
-  };
-  
-  function changeNationality(value: string){
-    console.log('# value '+value)
-    setPage(1)
-    setNationality(value)
-    console.log('# nationality '+nationality)
-    dispatch(loadpatients(page, [], value));
-  }
+  };  
 
   function nextPage() {
     // setLoading(true);
@@ -51,7 +54,23 @@ export default function Home() {
     <Container>
       <h2>Dashboard</h2>
       <TextField />
-      <FormControl component="fieldset">
+      <FormControl variant="filled" fullWidth>
+        <InputLabel id="demo-simple-select-filled-label">Nationality</InputLabel>
+        <Select
+          labelId="demo-simple-select-filled-label"
+          id="demo-simple-select-filled"
+          value={nationality}
+          onChange={changeNationality}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl component="fieldset" sx={{ my: 2 }}>
         <FormLabel component="legend">Gender</FormLabel>
         <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
           <FormControlLabel 

@@ -25,8 +25,7 @@ export default function Home() {
   const [gender, setGender] = useState('');  
 
   const changeNationality = (event: SelectChangeEvent) => {
-    console.log('# value '+event.target.value)
-    setPage(1)
+    console.log('# value '+event.target.value)    
     setNationality(event.target.value)
     console.log('# nationality '+nationality)
     dispatch(loadpatients(page, [], gender, event.target.value));

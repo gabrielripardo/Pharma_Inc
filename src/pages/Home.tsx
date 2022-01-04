@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useDispatch, useSelector, RootStateOrAny} from 'react-redux'
 import SimpleTable from "../components/SimpleTable"
-import TextField from '../components/TextField'
 import { Container } from '@mui/material';
 import { loadpatients } from "../store/patients";
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -53,7 +52,6 @@ export default function Home() {
   return (
     <Container>
       <h2>Dashboard</h2>
-      <TextField />
       <FormControl variant="filled" fullWidth>
         <InputLabel id="demo-simple-select-filled-label">Nationality</InputLabel>
         <Select

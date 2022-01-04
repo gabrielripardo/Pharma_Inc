@@ -60,19 +60,19 @@ export default function DetailsModal(props: any) {
             <Typography id="transition-modal-description" component={'span'} sx={{ mt: 2 }}>        
               <Box component="div" className={classes.root}>
                 <Typography id="transition-modal-title" variant="h6" component="h2">
-                  Detalhes do paciente
+                  Patient Details
                 </Typography>
                 <img className={classes.image} src={data.picture.medium}></img>
               </Box>                    
-              <p>Nome: <span>{`${data.name.title} ${data.name.first} ${data.name.last}`}</span></p>                           
-              <p>Email: <span>{data.email}</span> </p>
-              <p>Gênero: <span>{data.gender}</span></p>
-              <p>Data de nascimento: <span>{data.dob.date}</span></p>
-              <p>Telefone: <span>{data.phone}</span> </p>
-              <p>Nacionalidade: <span>{data.location.country}</span> </p>
-              <p>Endereço: <span>{`${data.location.state} - ${data.location.city} - ${data.location.street.name} - ${data.location.street.number}`}</span> </p>
-              <p>ID (Número de identificação): <span>{data.login.uuid}</span></p>
-              <p>URL para compartilhamento: <Link to={`details/${data.login.uuid}`}>{`${baseUrl}details/${data.login.uuid}`}</Link> </p>
+              <p><strong>Name: </strong><span>{`${data.name.title} ${data.name.first} ${data.name.last}`}</span></p>                           
+              <p><strong>Email: </strong><span>{data.email}</span> </p>
+              <p><strong>Gender: </strong><span>{data.gender}</span></p>
+              <p><strong>Birth date: </strong><span>{data.dob.date}</span></p>
+              <p><strong>Tellphone:</strong> <span>{data.phone}</span> </p>
+              <p><strong>Nationality: </strong><span>{data.location.country}</span> </p>
+              <p><strong>Address: </strong><span>{`${data.location.state} - ${data.location.city} - ${data.location.street.name} - ${data.location.street.number}`}</span> </p>
+              <p><strong>ID: </strong><span>{data.login.uuid}</span></p>
+              <p><strong>Share URL: </strong><Link to={`details/${data.login.uuid}`}>{`${baseUrl}details/${data.login.uuid}`}</Link> </p>
             </Typography>
           </Box>
         </Fade>

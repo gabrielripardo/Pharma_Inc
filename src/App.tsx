@@ -1,7 +1,6 @@
 import Home from "./pages/Home";
 import Details from "./pages/Details"
 import Header from "./pages/Header";
-import Test from "./pages/Test"
 import {Provider} from "react-redux"
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 // import {store} from "./store"

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useDispatch, useSelector, RootStateOrAny} from 'react-redux'
-import SimpleTable from "../components/SimpleTable"
+import SimpleTable from "../components/SimpleTable/SimpleTable"
 import { Container } from '@mui/material';
 import { loadpatients } from "../store/patients";
 import LoadingButton from '@mui/lab/LoadingButton';

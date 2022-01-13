@@ -7,8 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import DetailsModal from '../components/DetailsModal';
-import Patient from '../models/Patient.model';
+import DetailsModal from '../DetailsModal/DetailsModal';
+import Patient from '../../models/Patient.model';
 
 export default function SimpleTable(props: any) {
   const [open, setOpen] = useState(false);
@@ -27,7 +27,7 @@ export default function SimpleTable(props: any) {
         open && <DetailsModal open={open} handleClose={handleClose} data={row}/> 
       }
       
-      <TableContainer component={Paper}>      
+      <TableContainer component={Paper} data-testid="table_container">      
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
@@ -39,14 +39,14 @@ export default function SimpleTable(props: any) {
           </TableHead>
           <TableBody>
             {props.rows.map((row: any) => (
-              <TableRow key={row.login.uuid}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              <TableRow key={row.login.uuid} 
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}                
               >
-                <TableCell component="th" scope="row">{`${row.name.title} ${row.name.first} ${row.name.last}`}</TableCell>
+                <TableCell component="th" scope="row" role="patient_name">{`${row.name.title} ${row.name.first} ${row.name.last}`}</TableCell>
                 <TableCell align="right">{row.gender}</TableCell>
                 <TableCell align="right">{row.registered.age}</TableCell>
                 <TableCell align="right">                             
-                  <Button variant="contained" size="small" onClick={() => handleOpen(row)}>
+                  <Button variant="contained" size="small" onClick={() => handleOpen(row)} data-testid="button_view"> 
                     View
                   </Button>
                 </TableCell>              

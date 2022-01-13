@@ -1,5 +1,5 @@
 import {useDispatch, useSelector, RootStateOrAny} from 'react-redux'
-import { loadpatients } from "../store/patients";
+import { loadpatients } from "../../store/patients";
 import { useEffect } from "react";
 
 const Patients = () => {

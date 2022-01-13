@@ -4,7 +4,7 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Patient from '../models/Patient.model'
+import Patient from '../../models/Patient.model'
 import {Link} from 'react-router-dom'
 import { makeStyles } from '@material-ui/styles'
 
